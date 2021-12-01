@@ -1,0 +1,17 @@
+apiVersion: certificates.k8s.io/v1
+kind: CertificateSigningRequest
+metadata:
+  name: akshay
+spec:
+  groups:
+  - system:authenticated
+  request: MIICVjCCAT4CAQAwETEPMA0GA1UEAwwGYWtzaGF5MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwZk+88EpnjJmxlb3UHGdBNBf30chaS2J8sTejRMCA7oR
++RXikuYKAhoCPgRdfUgaQzWDnTVucZjMgMo3QL89ulqVRLxU+wapzynW62kvuyQ9hDx+Yas8Y29vi1IW9owiUJuefr+Bt0W09XCqMhWzoF6UlDp7w6+idPscd/NEA1oY
+E2dLDUTn4ebbnymCyeW2AM4/dNofdJ1Ltp4T/d0SG0frWrJ5+vY+9RQIJSbLrYHxrskc3U7KyqwQGpylipduDhtyqg0VLFDkqD3VYFCXhnMP9C6MlVfuSdmyOXT5SBwb
+ALXo5/UyLHoczLAq9ErGwQXMqta/195b/zjSnLas0wIDAQABoAAwDQYJKoZIhvcNAQELBQADggEBABublJS3BAyiTjkKUdUa4ybE3T1j90F+3Bjrg+rSwQG0BRmTWGJb
+rY1wCnhWJqa/ZNKrqO8U5wycbH2ykWQgJj+LaBIJlug4Wx++IaT0fTVyyHfnrPgdzXp6zgYWRJUcAp1UdQFDisJiVrzJzLzOHKvFkWXffN8DPfd2G8E/etxszal0Ar3w
+/5ZNnTe+IJbxU+/vta7Km4UEbPE7Tdz5mwMqcFKAAjmXkihJV8ycC8Xt8rb6R+HoR2ZoDgBQ7fIqfff7aS8q9BVW5mgxiB+VJTHAjRWJLqt/6A0gsCTLDHh1OhxvY0of
+Zc1EwxgA0NkW/ISD9so1t0A3e0zSP8mPDsw=
+  signerName: kubernetes.io/kube-apiserver-client
+  usages:
+  - client auth

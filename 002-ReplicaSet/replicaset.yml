@@ -1,0 +1,21 @@
+version: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontend
+  labels:
+    app: myapp
+    tier: frontend
+spec:
+#modify our replicas according to our case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+        - name: nginx-app
+          image: nginx 

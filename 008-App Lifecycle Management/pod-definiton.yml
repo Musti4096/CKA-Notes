@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ubuntu-sleeper-pod
+spec:
+containers:
+  - name: ubuntu-sleeper
+    image: ubuntu-sleeper
+    command: ["sleep2.0"]  #it corresponds with entrypoint data on Dockerfile 
+    args: ["10"]  # we override this data as a CMD on Dockerfile
+
+containers:
+  - name: ubuntu-sleeper
+    image: ubuntu-sleeper
+    command:
+    - "sleep"
+      "2000"  #it corresponds with entrypoint data on Dockerfile 
+    args: ["10"]  # we override this data as a CMD on Dockerfile
+    envFrom:   # tanimlanan configMap objesinden env-var cekmek
+      - configMapRef:
+        name: app-config # we could use all env-var from this file
+    env:  # tanimlanan configmap objesinden bir adet evn-var cekmek
+      - name: APP_COLOR
+        valueFrom:
+          configMapKeyRef:
+            name: app-config
+            key: APP Color
+    volumes: #volume icinde yerlestirdigimiz env-var file üzerinden env-var cekmek
+      - name: app-config-volume
+        configMap:
+          name: app-config
+    envFrom:
+      - secretRef:
+          name: 
+    env:
+      - name: DB_Password
+        valueFrom:
+          secretKeyRef:
+            name: app-secret
+            key: DB_Password
+    volumes: #volume icinde yerlestirdigimiz secret file üzerinden secret cekmek
+      - name: app-secret
+        secret:
+          secretName: app-secret
